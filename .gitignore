@@ -1,0 +1,20 @@
+# Ignore dependencies and build output in every weekly folder
+node_modules/
+.pnpm-store/
+dist/
+dist-server/
+coverage/
+
+# Local development copy of the app (the deliverables are week1 … week4)
+travel-planner/
+
+# Course materials and scratch files
+新建 DOCX 文档.docx
+.repo-clone/
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.local

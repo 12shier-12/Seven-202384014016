@@ -1,21 +1,24 @@
 # Security Policy
 
-## Supported Versions
+Triply is a client-side application: it has no backend, no accounts, and no telemetry. All trip data
+stays in the browser's IndexedDB on the device that entered it, and the app makes no network requests
+at runtime, so there is no server-side attack surface to report against.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Supported versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+The deployed build (the latest commit on `main`, published from `week4/`) is the supported version.
+The weekly folders `week1`–`week3` are frozen coursework snapshots and do not receive fixes.
 
-## Reporting a Vulnerability
+| Version | Supported |
+| --- | --- |
+| `main` (week4) | :white_check_mark: |
+| week1 – week3 | :x: |
 
-Use this section to tell people how to report a vulnerability.
+## Reporting a vulnerability
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Open an issue in this repository or contact the maintainer privately through GitHub. Please include
+the browser and version, the steps to reproduce, and what you expected to happen. Because there is no
+backend, reports about the hosting provider (GitHub Pages) should go to GitHub instead.
+
+Expect an initial reply within a week. This is a university capstone project, not a product, so fixes
+are best-effort.
