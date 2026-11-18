@@ -4,8 +4,7 @@
 
 There is no backend at all — every byte lives in the browser (IndexedDB). Open it and go; closing the tab loses nothing, and you can still tick off luggage with the Wi-Fi turned off.
 
-**Live demo**: `https://12shier-12.github.io/Seven-202384014016/` (published from `week4/` by the
-root GitHub Actions workflow)
+**Live demo**: run `pnpm build` in this folder and host `dist/` on any static server.
 
 ---
 
