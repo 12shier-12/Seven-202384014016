@@ -18,3 +18,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.local
+
+# Local helpers (not part of the deliverable)
+.gh-pages-tmp/
+serve.py
+打开项目.bat
