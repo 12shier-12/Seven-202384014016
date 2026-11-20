@@ -306,7 +306,19 @@ Tests target `src/core/` only, aiming at 90%+ coverage of core logic. The UI lay
 
 ## Deployment
 
-Pushing to `main` runs the tests, builds, and publishes to GitHub Pages via `.github/workflows/deploy.yml`.
+The build is fully static: `pnpm build` writes `dist/`, and that folder can be served by any static
+host. The published copy of this project lives on the `gh-pages` branch of the repository, and
+`RUNNING.md` explains the same flow for a reviewer.
+
+```bash
+pnpm build
+cd dist
+git init && git add -A && git commit -m "publish"
+git branch -M gh-pages
+git push -f origin gh-pages
+```
+
+Then enable Pages with **Settings → Pages → Source: Deploy from a branch → `gh-pages` / (root)**.
 
 Key configuration:
 
@@ -319,7 +331,7 @@ export default defineConfig({
 ```
 
 - `HashRouter` avoids 404s when a child route is refreshed on Pages, so no `404.html` fallback is needed
-- The build output goes to `dist/` and is uploaded by `upload-pages-artifact`
+- The build output is plain files in `dist/`; no server runtime is required
 - PWA is generated at build time (`vite-plugin-pwa`, `registerType: 'autoUpdate'`): the service worker precaches the app shell, so the app opens offline and does not get stuck on a stale cache
 - After the first deploy, open the link on a phone and use "Add to Home Screen", then turn on airplane mode and reopen the app
 
@@ -336,7 +348,7 @@ in IndexedDB, so an offline session keeps writing to the same local database.
 
 | Milestone | Scope | Status |
 | --- | --- | --- |
-| M0 · Foundation | Dependencies, Vite + TS + Tailwind, routing, Pages workflow | ✅ Done |
+| M0 · Foundation | Dependencies, Vite + TS + Tailwind, routing, static build | ✅ Done |
 | M1 · Trips | Types, Dexie, seed data (3 sample trips), trip CRUD, list and overview | ✅ Done |
 | M2 · Itinerary | Activity CRUD, move up / down, cross-day move, conflict detection, daily subtotals | ✅ Done (drag-and-drop ⏳) |
 | M3 · Packing | Expression engine, rule engine, 12 rules, packing screen, rule toggles | ✅ Done |
@@ -345,7 +357,7 @@ in IndexedDB, so an offline session keeps writing to the same local database.
 Current verification: `tsc --noEmit` clean, `vite build` succeeds (service worker generated), all 100
 tests pass, and the four weekly snapshots each build and test on their own.
 
-Still open: drag-and-drop ordering, custom rule editing, a real GitHub Pages deployment, and a demo GIF.
+Still open: drag-and-drop ordering, custom rule editing, and a demo GIF.
 
 If time runs short, cut in this order: dark mode → charts → PWA → cross-day drag → notifications → custom rule editing. **Never cut**: the rule engine, packing checkboxes, sample data, the live link.
 

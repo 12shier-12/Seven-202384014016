@@ -12,7 +12,7 @@
 | CSV | Packing list exports as CSV with a UTF-8 BOM so Excel opens Chinese correctly |
 | JSON backup | Full export / import with `schemaVersion`, validation and a confirmation before overwriting |
 | Print | Print stylesheet plus a "Print" button for a paper checklist |
-| Deployment | GitHub Actions workflow that tests, builds and publishes to GitHub Pages |
+| Deployment | Static build, `gh-pages` publishing steps, and an optional GitHub Actions workflow |
 | Presentation | `DEMO.md` — a two-minute demo script, and the full project documentation in `docs/PROJECT.md` |
 
 Everything from weeks 1–3 is included: trip management, day-by-day itinerary with conflict detection,

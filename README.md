@@ -25,6 +25,22 @@ deployment notes — is in [week4/docs/PROJECT.md](week4/docs/PROJECT.md). The p
 
 ## Quick start (final build)
 
+Step-by-step instructions for a reviewer are in [RUNNING.md](RUNNING.md) — install Node.js, clone the
+repository, then run three commands inside `week4/`.
+
+### Open the prebuilt app (no Node.js required)
+
+The final build is already compiled into `week4/dist/`. On Windows, double-click
+`打开项目.bat` — it starts a small local server with Python and opens
+<http://localhost:8080/>. Keep the console window open while you use the app.
+
+The app is a PWA, so it also works offline after the first load and can be installed from the
+browser's address bar. Data is stored in that browser's IndexedDB.
+
+### Develop or rebuild
+
+Requires Node.js >= 20. Then:
+
 ```bash
 cd week4
 pnpm install      # or npm install
